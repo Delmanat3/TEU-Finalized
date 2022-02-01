@@ -1,4 +1,4 @@
-import image from "../img/techyShit.jpg";
+import image from "../img/coffee.jpg";
 import smoov from "../img/back.jpg"
 import grass from '../img/grass.jpg'
 //const x='../img/super.jpg'

@@ -31,8 +31,8 @@ props = data;
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{color:"#1976D2", flexGrow: 1 }}>
-            News
+          <Typography variant="h6" component="div" sx={{color:"white", flexGrow: 1 }}>
+            coffeeCrew 
           </Typography>
           <Button sx={{color:"#1976D2"}} >Login</Button>
         </Toolbar>

@@ -30,7 +30,8 @@
 #shopItems{
 height:275px;
 box-shadow: 0 4px 8px 0 rgba(224, 223, 223, 0.2);
-
+background-color: rgb(16,8,4);
+color: white;
 padding: 2rem;
 border-radius: 9px; 
 }
@@ -47,7 +48,8 @@ border-radius: 9px;
   background-repeat: no-repeat;
   background-size: cover;
 }
-#Bg2{
+#Bg1{
+  height:700px;
   /* //background-color: #282c34; */
 
 }
