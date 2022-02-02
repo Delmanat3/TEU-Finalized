@@ -15,6 +15,7 @@ import ShoppingCartSharpIcon from '@mui/icons-material/ShoppingCartSharp';
 import Auth from '../../utils/auth';
 import Cart from '../Cart';
 export  function Nav(props) {
+  const Balls="https://coffee-crew.herokuapp.com"
   const { loading, data } = useQuery(QUERY_ALL_PRODUCTS);
   if (loading) return "loading";
 props = data;
@@ -43,7 +44,7 @@ props = data;
             edge="start"
             color="primary"
             aria-label="menu"
-            href="/Login"
+            href={Balls+"/Login"}
             sx={{ mr: 2, fontSize:"14px"}}
           >
            Login <PatternIcon/>
@@ -53,7 +54,7 @@ props = data;
             edge="start"
             color="primary"
             aria-label="menu"
-            href="/SignUp"
+            href={Balls+"/SignUp"}
             sx={{ mr: 2, fontSize:"14px"}}
           >
            Sign Up <PersonAddAltSharpIcon/>
@@ -64,7 +65,7 @@ props = data;
             edge="start"
             color="primary"
             aria-label="menu"
-            href="/Checkout"
+            href={Balls+"/Checkout"}
             sx={{ mr: 2, fontSize:"14px"}}
           >
            <ShoppingCartSharpIcon/>
