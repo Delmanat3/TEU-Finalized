@@ -48,9 +48,12 @@ function App() {
 <StoreProvider>
     <Switch>
     <Route  path='/' component={Nav} />
+    <Switch/>
     <Route   path='/Checkout' component={Checkout} />
     <Route   path='/Detail' component={Detail} />
+    <Switch>
     <Route  path='/Login' component={Login} />
+    </Switch>
     <Route  path='/SignUp' component={SignUp} />
     </Switch>
 </StoreProvider>
