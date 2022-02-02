@@ -47,11 +47,11 @@ function App() {
    
 <StoreProvider>
     <Switch>
-    <Route exact path='/' component={Nav} />
-    <Route  exact path='/Checkout' component={Checkout} />
-    <Route  exact path='/Detail' component={Detail} />
-    <Route  exact path='/Login' component={Login} />
-    <Route exact path='/SignUp' component={SignUp} />
+    <Route  path='/' component={Nav} />
+    <Route   path='/Checkout' component={Checkout} />
+    <Route   path='/Detail' component={Detail} />
+    <Route  path='/Login' component={Login} />
+    <Route  path='/SignUp' component={SignUp} />
     </Switch>
 </StoreProvider>
     </Router>

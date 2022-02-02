@@ -31,21 +31,10 @@ if (process.env.NODE_ENV === 'production') {
 	app.use(express.static(path.join(__dirname, '../client/build')));
   }
 
-  let protected = ['App.css', 'favicon.ico']
+app.get('/', (req, res) => {
+	res.sendFile(path.join(__dirname, '../client/public/index.html'));
+});
 
-  app.get("*", (req, res) => {
-  
-	let path = req.params['0'].substring(1)
-  
-	if (protected.includes(path)) {
-	  // Return the actual file
-	  res.sendFile(`${__dirname}/build/${path}`);
-	} else {
-	  // Otherwise, redirect to /build/index.html
-	  res.sendFile(`${__dirname}/build/index.html`);
-	}
-  });
-  
 //* set up server to listen on port and open connection to graphql
 db.once('open', () => {
 	app.listen(PORT, () => {
