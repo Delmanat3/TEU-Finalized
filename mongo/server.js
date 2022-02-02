@@ -31,9 +31,12 @@ if (process.env.NODE_ENV === 'production') {
 	app.use(express.static(path.join(__dirname, '../client/build')));
   }
 
-app.get('/', (req, res) => {
-	res.sendFile(path.join(__dirname, '../client/public/index.html'));
-});
+app.get('/*', (req, res) => {
+	let url = path.join(__dirname, '../client/build', 'index.html');
+	if (!url.startsWith('/app/')) // we're on local windows
+	  url = url.substring(1);
+	res.sendFile(url);
+  });
 
 //* set up server to listen on port and open connection to graphql
 db.once('open', () => {
