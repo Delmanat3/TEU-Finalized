@@ -4,6 +4,7 @@ import grass from '../img/grass.jpg'
 //const x='../img/super.jpg'
 import { styled, alpha } from "@mui/material/styles";
 import { Cards } from "../Card";
+import { Search } from "../Search";
 
 const Bgimg1 = styled("div")(({ theme }) => ({
   backgroundImage: `url(${image})`,
@@ -22,7 +23,7 @@ export const Jumbo = (props) => {
 
   return (
     <>
-     <div id="Bg1" style={{ backgroundImage: `url(${image})` }}></div>
+     <div id="Bg1" style={{ backgroundImage: `url(${image})` }}> <Search sx={{}}/> </div>
       <Bgimg1 />
       <div id="Bg2" style={{ backgroundImage: `url(${grass})` }} >
           <Cards {...props}/>
