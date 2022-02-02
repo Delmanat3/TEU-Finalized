@@ -31,7 +31,7 @@ if (process.env.NODE_ENV === 'production') {
 	app.use(express.static(path.join(__dirname, '../client/build')));
   }
 
-  let protected = ['app.css', 'favicon.ico']
+  let protected = ['App.css', 'favicon.ico']
 
   app.get("*", (req, res) => {
   
