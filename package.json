@@ -4,7 +4,7 @@
   "description": "Ecommerce porfolio piece",
   "main": "server.js",
   "scripts": {
-    "start": "node mongo/server.js",
+    "start": "cd client && npm run build",
     "develop": "concurrently \"cd mongo && npm run watch\" \"cd client && npm start\"",
     "install": "cd mongo && npm i && cd ../client && npm i",
     "seed": "cd mongo && npm run seed",
