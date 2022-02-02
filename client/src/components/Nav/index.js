@@ -44,7 +44,7 @@ props = data;
             edge="start"
             color="primary"
             aria-label="menu"
-            href={Balls+"/Login"}
+            href="/Login"
             sx={{ mr: 2, fontSize:"14px"}}
           >
            Login <PatternIcon/>
@@ -54,7 +54,7 @@ props = data;
             edge="start"
             color="primary"
             aria-label="menu"
-            href={Balls+"/SignUp"}
+            href="/SignUp"
             sx={{ mr: 2, fontSize:"14px"}}
           >
            Sign Up <PersonAddAltSharpIcon/>
@@ -65,7 +65,7 @@ props = data;
             edge="start"
             color="primary"
             aria-label="menu"
-            href={Balls+"/Checkout"}
+            href="/Checkout"
             sx={{ mr: 2, fontSize:"14px"}}
           >
            <ShoppingCartSharpIcon/>
