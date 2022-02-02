@@ -50,7 +50,7 @@ function App() {
     <Route exact path='/' element={<Nav/>} />
     <Route  exact path='/Checkout' element={<Checkout/>} />
     <Route  exact path='/Detail' element={<Detail/>} />
-    <Route  exact path='/Login' element={<Login/>} />
+    <Route  exact path='/Login' component={Login} />
     <Route exact path='/SignUp' element={<SignUp/>} />
     </Routes>
 </StoreProvider>
