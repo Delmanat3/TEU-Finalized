@@ -1,67 +1,60 @@
 const { gql } = require('apollo-server-express');
 
+const typeDefs = gql`
+  type Category {
+    _id: ID
+    name: String
+  }
 
-const typeDefs=`
+  type Product {
+    _id: ID
+    name: String
+    description: String
+    image: String
+    quantity: Int
+    price: Float
+    category: Category
+  }
 
-type Product {
-    _id:ID!
-    product_name:String!
-    price:String!
-    stock:Int!
-    cat_id:Category!
-   
-}
-type User {
-    _id:ID!
-    name:String!
-    email:String!
-    password:String!
-   cart:Product
-}
-type Auth{
-    token:ID!
-    user:User
-}
-type Tag{
-    _id:ID!
-    name:String!
-}
+  type Order {
+    _id: ID
+    purchaseDate: String
+    products: [Product]
+  }
 
-type pTag{
-_id:ID!
-product_id:Product!
-tag_id:Tag!
-}
+  type User {
+    _id: ID
+    firstName: String
+    lastName: String
+    email: String
+    orders: [Order]
+  }
 
-type Category{
-_id:ID!
-cat_name:String!
+  type Checkout {
+    session: ID
+  }
 
-}
+  type Auth {
+    token: ID
+    user: User
+  }
 
+  type Query {
+    categories: [Category]
+    products(category: ID, name: String): [Product]
+    product(_id: ID!): Product
+    user: User
+    order(_id: ID!): Order
+    checkout(products: [ID]!): Checkout
+  }
 
-
-type Query{
-    products:[Product]!
-    product(_id:ID!):Product
-    me:User
-    categories:[Category]!
-}
-type Mutation{
-    
+  type Mutation {
+    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+    addOrder(products: [ID]!): Order
+    updateUser(firstName: String, lastName: String, email: String, password: String): User
+    updateProduct(_id: ID!, quantity: Int!): Product
     login(email: String!, password: String!): Auth
-    addUser(name: String!, email: String!, password: String!): Auth
-}
+  }
+`;
 
-
-`
-// addData(name:String!,description:String,links:[String],coinId:String!,images:[String],price:[String],supply:String,date_added:String):User
-// type Mutation {
-//     addData(coinData:newCoin):Coin
-//     addUser(name: String!, email: String!, password: String!,pic:String,bio:String): Auth
-//     addFav(coin:String!): User
-//     login(email: String!, password: String!): Auth
-//     removeUser: User
-
-// }
 module.exports = typeDefs;

@@ -6,13 +6,16 @@ import {
   ApolloProvider,
   createHttpLink,
 } from '@apollo/client';
+import { BrowserRouter as Router,Routes, Route} from 'react-router-dom';
+import Checkout from './pages/Checkout';
 import { setContext } from '@apollo/client/link/context';
-import {X}from './components/progressbar'
 import { Nav } from './components/Nav';
-import { Jumbo } from './components/jumbotron';
-import { Cards } from './components/Card';
-import {  useQuery } from '@apollo/client';
-import {GET_PRODUCTS}from './utils/queries'
+import {Login}from "./pages/Login"
+import {SignUp}from "./pages/SignUp"
+import Detail from './pages/Detail';
+import { StoreProvider } from './utils/GlobalState';
+import Cart from './components/Cart';
+
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -40,9 +43,19 @@ function App() {
 
   return (
     <ApolloProvider client={client}>
-    <Nav/>
-    {/* <Jumbo/> */}
+      <Router>
+   
+<StoreProvider>
+    <Routes>
+    <Route  path='/' element={<Nav/>} />
+    <Route  path='/Checkout' element={<Checkout/>} />
+    <Route  path='/Detail' element={<Detail/>} />
 
+    <Route  path='/Login' element={<Login/>} />
+    <Route  path='/SignUp' element={<SignUp/>} />
+    </Routes>
+</StoreProvider>
+    </Router>
     </ApolloProvider>
   );
 }

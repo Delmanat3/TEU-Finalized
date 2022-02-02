@@ -5,7 +5,7 @@ import grass from '../img/grass.jpg'
 import { styled, alpha } from "@mui/material/styles";
 import { Cards } from "../Card";
 import { Search } from "../Search";
-
+import ProductItem from "../ProductItem";
 const Bgimg1 = styled("div")(({ theme }) => ({
   backgroundImage: `url(${image})`,
   minHeight: "300px",

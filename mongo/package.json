@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "watch": "nodemon server.js",
-    "seed": "node seeds/index.js"
+    "seed": "node config/seed.js"
   },
   "author": "",
   "license": "ISC",
@@ -23,6 +23,8 @@
     "graphql": "^14.6.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.13",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "stripe": "^8.67.0"
+
   }
 }

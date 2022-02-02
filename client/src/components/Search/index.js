@@ -18,7 +18,7 @@ export  function Search() {
       <TextField
         hiddenLabel
         fullWidth
-        placeholder="Beans,Press's and More!"
+        placeholder="Search"
         variant="filled"
         sx={{ backgroundColor:"white"}}
       />

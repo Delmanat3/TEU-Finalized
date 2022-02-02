@@ -4,14 +4,10 @@ const Category=require('./category');
 const Tag=require('./tags');
 const pTag=require('./productTag');
 const User=require('./User');
+const Order=require('./order');
 
 
 
 
-module.exports={
-    Product:Product,
-    Category:Category,
-    Tag:Tag,
-    pTag:pTag,
-    User:User
-}
+
+module.exports = { Order ,User, Product, Category, };

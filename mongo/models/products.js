@@ -1,24 +1,34 @@
 const mongoose = require('mongoose');
-const dateFormat = require('../utils/dateFormat');
 
-const Schema = mongoose.Schema;
-
-const ObjectId = Schema.Types.ObjectId;
+const { Schema } = mongoose;
 
 const productSchema = new Schema({
-	product_name: {
-		type: String,
-	},
-	price:{
-		type:String,
-	},
-	stock:{
-		type:Number,
-	},
-	cat_id:{
-		type:ObjectId,
-        ref:"Category"
-	}
+  name: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  description: {
+    type: String
+  },
+  image: {
+    type: String
+  },
+  price: {
+    type: Number,
+    required: true,
+    min: 0.99
+  },
+  quantity: {
+    type: Number,
+    min: 0,
+    default: 0
+  },
+  category: {
+    type: Schema.Types.ObjectId,
+    ref: 'Category',
+    required: true
+  }
 });
 
 const Product = mongoose.model('Product', productSchema);
