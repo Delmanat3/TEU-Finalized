@@ -11,6 +11,17 @@ type Product {
     cat_id:Category!
    
 }
+type User {
+    _id:ID!
+    name:String!
+    email:String!
+    password:String!
+   cart:Product
+}
+type Auth{
+    token:ID!
+    user:User
+}
 type Tag{
     _id:ID!
     name:String!
@@ -33,7 +44,13 @@ cat_name:String!
 type Query{
     products:[Product]!
     product(_id:ID!):Product
-
+    me:User
+    categories:[Category]!
+}
+type Mutation{
+    
+    login(email: String!, password: String!): Auth
+    addUser(name: String!, email: String!, password: String!): Auth
 }
 
 

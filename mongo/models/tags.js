@@ -3,7 +3,6 @@ const dateFormat = require('../utils/dateFormat');
 
 const Schema = mongoose.Schema;
 
-const ObjectId = Schema.Types.ObjectId;
 
 const tagSchema = new Schema({
 	name: {
