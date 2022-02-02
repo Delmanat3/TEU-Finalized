@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Jumbo } from "../jumbotron";
 import { useQuery } from "@apollo/client";
+import { Link } from "react-router-dom";
 import { QUERY_ALL_PRODUCTS } from "../../utils/queries";
 import PatternIcon from '@mui/icons-material/Pattern';
 import PersonAddAltSharpIcon from '@mui/icons-material/PersonAddAltSharp';
@@ -39,6 +40,7 @@ props = data;
           <Typography variant="h6"  sx={{color:"white", flexGrow: 1,fontFamily:"Montserrat" }}>
             Coffee Crew 
           </Typography>
+          <Link to="/Login"></Link>
           <IconButton
             size="large"
             edge="start"
