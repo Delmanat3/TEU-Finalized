@@ -2,9 +2,9 @@
   "name": "teu-finalized",
   "version": "1.0.0",
   "description": "Ecommerce porfolio piece",
-  "main": "server.js",
+  "main": "mongo/server.js",
   "scripts": {
-    "start": "cd client && npm run build",
+    "start": "node mongo/server.js",
     "develop": "concurrently \"cd mongo && npm run watch\" \"cd client && npm start\"",
     "install": "cd mongo && npm i && cd ../client && npm i",
     "seed": "cd mongo && npm run seed",
