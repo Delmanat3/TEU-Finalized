@@ -7,12 +7,16 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Jumbo } from "../jumbotron";
 import { useQuery } from "@apollo/client";
+import { Link } from "react-router-dom";
 import { QUERY_ALL_PRODUCTS } from "../../utils/queries";
 import PatternIcon from '@mui/icons-material/Pattern';
 import PersonAddAltSharpIcon from '@mui/icons-material/PersonAddAltSharp';
 import ShoppingCartSharpIcon from '@mui/icons-material/ShoppingCartSharp';
 import Auth from '../../utils/auth';
+
 export  function Nav(props) {
+
+
   const { loading, data } = useQuery(QUERY_ALL_PRODUCTS);
   if (loading) return "loading";
 props = data;
