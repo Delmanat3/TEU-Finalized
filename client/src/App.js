@@ -12,7 +12,6 @@ import { Nav } from './components/Nav';
 import {Login}from "./pages/Login"
 import {SignUp}from "./pages/SignUp"
 import Detail from './pages/Detail';
-import { StoreProvider } from './utils/GlobalState';
 
 
 const httpLink = createHttpLink({
@@ -54,7 +53,6 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
    
-<StoreProvider>
     <Routes>
     <Route  path='/' element={<Nav/>} />
  
@@ -65,7 +63,7 @@ function App() {
   
     <Route  path='/SignUp' element={<SignUp/>} />
     </Routes>
-</StoreProvider>
+
     </Router>
     </ApolloProvider>
   );
