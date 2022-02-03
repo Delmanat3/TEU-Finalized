@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import {
   ApolloClient,
@@ -6,7 +5,7 @@ import {
   ApolloProvider,
   createHttpLink,
 } from '@apollo/client';
-import { BrowserRouter as Router,Switch, Route} from 'react-router-dom';
+import { BrowserRouter as Router,Routes, Route} from 'react-router-dom';
 import Checkout from './pages/Checkout';
 import { setContext } from '@apollo/client/link/context';
 import { Nav } from './components/Nav';
@@ -14,7 +13,7 @@ import {Login}from "./pages/Login"
 import {SignUp}from "./pages/SignUp"
 import Detail from './pages/Detail';
 import { StoreProvider } from './utils/GlobalState';
-import Cart from './components/Cart';
+
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -40,22 +39,32 @@ const client = new ApolloClient({
 });
 
 function App() {
-
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/serviceWorker.js').then(function(registration) {
+        // Registration was successful
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }, function(err) {
+        // registration failed :(
+        console.log('ServiceWorker registration failed: ', err);
+      });
+    });
+  }
   return (
     <ApolloProvider client={client}>
       <Router>
    
 <StoreProvider>
-    <Switch>
-    <Route  path='/' component={Nav} />
-    <Switch/>
-    <Route   path='/Checkout' component={Checkout} />
-    <Route   path='/Detail' component={Detail} />
-    <Switch>
-    <Route  path='/Login' component={Login} />
-    </Switch>
-    <Route  path='/SignUp' component={SignUp} />
-    </Switch>
+    <Routes>
+    <Route  path='/' element={<Nav/>} />
+ 
+    <Route   path='/Checkout' element={<Checkout/>} />
+    <Route   path='/Detail' element={<Detail/>} />
+   
+    <Route  path='/Login' element={<Login/>} />
+  
+    <Route  path='/SignUp' element={<SignUp/>} />
+    </Routes>
 </StoreProvider>
     </Router>
     </ApolloProvider>

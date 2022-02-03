@@ -10,7 +10,6 @@
     "seed": "cd mongo && npm run seed",
     "build": "cd client && npm run build",
     "heroku-postbuild": "cd client && npm run build"
-
   },
   "repository": {
     "type": "git",
@@ -25,6 +24,7 @@
   "dependencies": {
     "@mui/lab": "^5.0.0-alpha.66",
     "concurrently": "^6.4.0",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "react-router-dom": "^6.2.1"
   }
 }

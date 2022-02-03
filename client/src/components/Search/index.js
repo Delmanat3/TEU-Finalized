@@ -8,7 +8,7 @@ export  function Search() {
     id="search"
       component="form"
       sx={{
-        width: '50ch'
+        width: '40ch'
        
       }}
       spacing={2}

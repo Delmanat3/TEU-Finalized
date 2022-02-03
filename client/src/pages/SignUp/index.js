@@ -2,20 +2,43 @@ import * as React from 'react';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import {Container,Typography,Box,Grid,Link,Checkbox,FormControlLabel,TextField,CssBaseline,Button,Avatar} from '@mui/material';
 import { Copyright } from '../../components/Copyright';
-
+import { useMutation } from "@apollo/client";
+import { ADD_USER } from "../../utils/mutations";
+import Auth from "../../utils/auth";
 
 
 export  function SignUp() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+  const [formState, setFormState] = React.useState({
+    firstName: '',
+    lastName:'',
+    email: '',
+    password: '',
+  });
+  const [addUser] = useMutation(ADD_USER);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value.trim(),
     });
   };
+    const handleSignup=async(e)=>{
+        e.preventDefault();
+        console.log(formState);
 
+        try {
+          const { data } = await addUser({
+            variables: { ...formState },
+          });
+    
+          Auth.login(data.addUser.token);
+        } catch (e) {
+          alert(e.message)
+        }
+
+    }   
   return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -33,7 +56,7 @@ export  function SignUp() {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box component="form" noValidate onSubmit={handleSignup} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -42,6 +65,8 @@ export  function SignUp() {
                   required
                   fullWidth
                   id="firstName"
+                  value={formState.firstName}
+                  onChange={handleChange}
                   label="First Name"
                   autoFocus
                 />
@@ -51,6 +76,8 @@ export  function SignUp() {
                   required
                   fullWidth
                   id="lastName"
+                  value={formState.lastName}
+                  onChange={handleChange}
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
@@ -62,6 +89,8 @@ export  function SignUp() {
                   fullWidth
                   id="email"
                   label="Email Address"
+                  value={formState.email}
+                  onChange={handleChange}
                   name="email"
                   autoComplete="email"
                 />
@@ -72,6 +101,8 @@ export  function SignUp() {
                   fullWidth
                   name="password"
                   label="Password"
+                  value={formState.password}
+                  onChange={handleChange}
                   type="password"
                   id="password"
                   autoComplete="new-password"
