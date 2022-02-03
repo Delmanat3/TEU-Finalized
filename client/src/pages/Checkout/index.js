@@ -1,12 +1,24 @@
-import * as React from 'react';
-import {Typography,Button,StepLabel,Step,Stepper,Paper,Toolbar,Container,Box,AppBar,CssBaseline} from '@mui/material';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import AddressForm from '../../components/Address';
-import PaymentForm from '../../components/Shekel';
-import Review from '../../components/Review';
-import {Copyright}from "../../components/Copyright"
-import Auth from '../../utils/auth';
-const steps = ['Shipping address', 'Payment details', 'Review your order'];
+import * as React from "react";
+import {
+  Typography,
+  Button,
+  StepLabel,
+  Step,
+  Stepper,
+  Paper,
+  Toolbar,
+  Container,
+  Box,
+  AppBar,
+  CssBaseline,
+} from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import AddressForm from "../../components/Address";
+import PaymentForm from "../../components/Shekel";
+import Review from "../../components/Review";
+import { Copyright } from "../../components/Copyright";
+import Auth from "../../utils/auth";
+const steps = ["Shipping address", "Payment details", "Review your order"];
 
 function getStepContent(step) {
   switch (step) {
@@ -17,7 +29,7 @@ function getStepContent(step) {
     case 2:
       return <Review />;
     default:
-      throw new Error('Unknown step');
+      throw new Error("Unknown step");
   }
 }
 
@@ -33,9 +45,9 @@ export default function Checkout() {
   const handleBack = () => {
     setActiveStep(activeStep - 1);
   };
-const x=Auth.getProfile();
-const {data}= x
-console.log(data.name)
+  const x = Auth.getProfile();
+  const { data } = x;
+  console.log(data.name);
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -44,7 +56,7 @@ console.log(data.name)
         color="default"
         elevation={0}
         sx={{
-          position: 'relative',
+          position: "relative",
           borderBottom: (t) => `1px solid ${t.palette.divider}`,
         }}
       >
@@ -55,7 +67,10 @@ console.log(data.name)
         </Toolbar>
       </AppBar>
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
-        <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
+        <Paper
+          variant="outlined"
+          sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}
+        >
           <Typography component="h1" variant="h4" align="center">
             Checkout
           </Typography>
@@ -74,14 +89,14 @@ console.log(data.name)
                 </Typography>
                 <Typography variant="subtitle1">
                   Your order number is #2001539. We have emailed your order
-                  confirmation to {data.email}, and will send you an update when your order has
-                  shipped.
+                  confirmation to {data.email}, and will send you an update when
+                  your order has shipped.
                 </Typography>
               </React.Fragment>
             ) : (
               <React.Fragment>
                 {getStepContent(activeStep)}
-                <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+                <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
                   {activeStep !== 0 && (
                     <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
                       Back
@@ -93,7 +108,7 @@ console.log(data.name)
                     onClick={handleNext}
                     sx={{ mt: 3, ml: 1 }}
                   >
-                    {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+                    {activeStep === steps.length - 1 ? "Place order" : "Next"}
                   </Button>
                 </Box>
               </React.Fragment>
