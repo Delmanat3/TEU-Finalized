@@ -26,7 +26,6 @@ export  function SignUp() {
   };
     const handleSignup=async(e)=>{
         e.preventDefault();
-        console.log(formState);
 
         try {
           const { data } = await addUser({

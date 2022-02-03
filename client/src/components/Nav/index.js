@@ -40,7 +40,7 @@ props = data;
           <Typography variant="h6"  sx={{color:"white", flexGrow: 1,fontFamily:"Montserrat" }}>
             Coffee Crew 
           </Typography>
-          <Link to="/login">
+          <Link to="/login" underline="none" >
           <IconButton
             size="large"
             edge="start"
@@ -55,27 +55,29 @@ props = data;
            Login <PatternIcon/>
           </IconButton>
           </Link>
+          <Link to="/Signup" underline="none">
           <IconButton
             size="large"
             edge="start"
             color="primary"
             aria-label="menu"
-            href="/SignUp"
             sx={{ mr: 2, fontSize:"14px"}}
           >
            Sign Up <PersonAddAltSharpIcon/>
           </IconButton>
+          </Link>
           {Auth.loggedIn() ? (
+          <Link to="/Checkout" underline="none">
           <IconButton
             size="large"
             edge="start"
             color="primary"
             aria-label="menu"
-            href="/Checkout"
             sx={{ mr: 2, fontSize:"14px"}}
           >
            <ShoppingCartSharpIcon/>
           </IconButton>
+          </Link>
           
            ) : (
             <div></div>
