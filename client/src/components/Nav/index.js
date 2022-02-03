@@ -47,7 +47,7 @@ props = data;
             aria-label="menu"
             onClick={((e)=>{
               e.preventDefault();
-              window.location="/Login"
+              window.location="/login"
             })}
             sx={{ mr: 2, fontSize:"14px"}}
           >
