@@ -40,19 +40,21 @@ props = data;
           <Typography variant="h6"  sx={{color:"white", flexGrow: 1,fontFamily:"Montserrat" }}>
             Coffee Crew 
           </Typography>
+          <Link to="/login">
           <IconButton
             size="large"
             edge="start"
             color="primary"
             aria-label="menu"
-            onClick={((e)=>{
-              e.preventDefault();
-              window.location="/login"
-            })}
+            // onClick={((e)=>{
+            //   e.preventDefault();
+            //   window.location="/login"
+            // })}
             sx={{ mr: 2, fontSize:"14px"}}
           >
            Login <PatternIcon/>
           </IconButton>
+          </Link>
           <IconButton
             size="large"
             edge="start"
