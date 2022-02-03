@@ -106,10 +106,11 @@ export function Login() {
               <Link href="#" variant="body2">
                 Forgot password?
               </Link>
+
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
+              <Link href="/" variant="body2">
+                {"Home"}
               </Link>
             </Grid>
           </Grid>
